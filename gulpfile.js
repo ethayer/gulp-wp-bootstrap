@@ -25,7 +25,7 @@ gulp.task('lint', function() {
 gulp.task('Iconfont', function(){
   return gulp.src(['wp-content/themes/' + themeName + '/assets/icons/*.svg'])
   .pipe(iconfont({
-    fontName: 'mpls-icon-font', // required
+    fontName: themeName + '-font', // required
     appendUnicode: true, // recommended option
     normalize: true,
     formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
@@ -39,7 +39,7 @@ gulp.task('Iconfont', function(){
           // this line is needed because gulp-iconfont has changed the api from 2.0
           return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
         }),
-     fontName: 'mpls-icon-font',
+     fontName: themeName + '-font',
      fontPath: '../dist/fonts/',
      className: 'icon'
      }))
